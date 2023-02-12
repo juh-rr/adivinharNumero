@@ -13,7 +13,7 @@ while difficulty != "easy" and difficulty != "hard":
 qtdTries = difficulty_setting(difficulty)
 
 keepTrying = True
-while keepTrying == True:
+while keepTrying == True and qtdTries > 0:
   answer = int(input("Please guess a number between 1 and 100: "))
   if answer == correctAnswer:
     print(f"Congratulations! You guessed {correctAnswer} right!")
@@ -22,13 +22,9 @@ while keepTrying == True:
      print("Too high!")
      print(f"You have {qtdTries-1} tries left.")
      qtdTries -= 1
-     if qtdTries == 0:
-       print(f"You're out of tries! The correct answer was {correctAnswer}.")
-       keepTrying = False
   elif answer < correctAnswer:
     print("Too low!")
     print(f"You have {qtdTries-1} tries left.")
     qtdTries -= 1
-    if qtdTries == 0:
-      print(f"You're out of tries! The correct answer was {correctAnswer}.")
-      keepTrying = False
+if qtdTries == 0:
+  print(f"You're out of tries! The correct answer was {correctAnswer}.")
